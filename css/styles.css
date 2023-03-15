@@ -1,10 +1,14 @@
 @font-face {
-    font-family: 'Camelot Caps';
-    src: url(../fonts/CamelotCaps.ttf);
+    font-family: 'Silvus';
+    src: url(../fonts/silvus__.ttf);
 }
 @font-face {
     font-family: 'Fine Fraktur';
     src: url(../fonts/fine_fraktur_B.ttf);
+}
+@font-face {
+    font-family: 'Cardinal';
+    src: url(../fonts/Cardinal.ttf);
 }
 *,
 *:before,
@@ -17,6 +21,9 @@ body{
     max-height: 100vh;
     overflow: hidden;
 }
+/* body * {
+    border: solid 1px black;
+} */
 
 a{
     text-decoration: none;
@@ -27,23 +34,21 @@ button{
     background: transparent;
 }
 h2{
-    font-family: 'Fine Fraktur';
+    font-family: 'Cardinal';
     font-size: 50px;
     margin-bottom: 30px;
 }
 
-.container{
+.nav-container{
     background-color: rgb(231, 61, 14);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    height: 150px;
+    justify-content: space-between;
     padding: 0 30px;
 }
-.name{
-    font-family: 'Camelot Caps';
-    font-size: 60px;
-    padding: 20px 0 10px 0;
+img#home{
+    height: 40px;
+    transition: transform .5s ease;
 }
 .main-nav {
     display: flex;
@@ -53,66 +58,158 @@ h2{
 .nav-element{
     height: 100%;
 }
+
 .nav-element button{
-    font-family: 'Fine Fraktur';
-    font-size: 20px;
+    font-family: 'Cardinal';
+    font-size: 25px;
     padding: 0 30px;
-    height: 100%;
+    height: 55px;
     vertical-align: middle;
     color: white;
     transition: background-color 1s ;
     display: inline-block;
 }
 .nav-element button:hover{
-    background-color: rgb(243, 132, 5);
+    background-color: white;
+    color:rgb(231, 61, 14) ;
 }
 
+button#parade-button{
+    padding: 6px 15px;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(231, 61, 14);
+    font-family: 'Cardinal';
+    font-size: 25px;
+    transition: transform .5s ease;
+}
+button#parade-button:hover,
+img#home:hover{
+    transform: scale(1.2);
+}
 .dude-info{
-    color: black;
+    visibility: hidden;
     position: absolute;
+    top: 340px;
+    left: 0;
+    color: black;
     text-align: right;
     width: 400px;
-    top: 400px;
-    left: 20px;
     color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    transition: transform .35s linear;
-    visibility: hidden;
+    transition: left 1s ease;
 }
+
 .nav-element:hover .dude-info{
     visibility: visible;
-    transform: translateX(250px);
+    left: 20%;
 }
-
-img{
-    position: absolute;
-    right: 250px;
-    top: -130px;
+.nav-element img{
+    height: 50vh;
     z-index: -2;
-    width: 500px;
     visibility: hidden;
-    width: 500px;
+    position: absolute;
+    top: 210px;
+    right: 0;
+    transition: right 1s ease;
 }
-#eladio img{
-    top: -180px;
-}
-#nemesius img{
-    top: -280px;
-    width: 450px;
-}
-#leonora img{
-    top: -200px;
-    width: 400px;
-}
-
 .nav-element:hover img{
     visibility: visible;
-    animation: bounce2 1s ease-out forwards;
+    right: 30%;
+}
+.nav-element#johannes:hover img{
+    right: 27%;
+}
+.nav-element#diana:hover img,
+.nav-element#florian:hover img{
+    right: 38%;
+}
+.nav-element#francisca:hover img{
+    right: 20%;
 }
 
 
-@keyframes bounce2 {
-	40% {transform: translateY(400px);}
-	60% {transform: translateY(380px);}
-	100% {transform: translateY(390px);}
+
+main{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;   
+    text-align: center;
+}
+#hello-world{
+    font-family: 'Silvus';
+    font-size: 60px;
+    padding: 20px 0 10px 0;
+    color: rgb(231, 61, 14);
+    margin-bottom: 2rem;
+}
+.subtitle{
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'Cardinal';
+    margin-bottom: 1rem;
+}
+
+.hidden{
+    display: none;
+}
+
+@keyframes oddParade {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-260px * 7));
+    }
+}
+@keyframes oddDancingOdds{
+    0% {transform: rotate(10deg);}
+    50% {transform: rotate(-10deg);}
+    100% {transform: rotate(10deg);}
+}
+@keyframes oddDancingEvens{
+    0% {transform: rotate(-10deg);}
+    50% {transform: rotate(10deg);}
+    100% {transform: rotate(-10deg);}
+}
+@keyframes dancingWilliam{
+    0% {transform: rotate(10deg);}
+    25% {transform: rotate(-10deg);}
+    50% {transform: rotate(10deg);}
+    70% {transform: rotate(-360deg);}
+    100% {transform: rotate(-350deg);}
+
+}
+
+#odd-parade{
+    width: calc(260px * 6);
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+#odd-parade img{
+   height: 260px;
+}
+
+.slide{
+    width: 260px;
+}
+
+.slides-wrapper {
+    animation: oddParade 20s linear infinite;
+    display: flex;
+    width: calc(260px * 14);
+}
+.slide:nth-child(odd):not(.william-slide){
+    animation: oddDancingOdds 1.8s infinite;
+}
+.slide:nth-child(even):not(.william-slide){
+    animation: oddDancingEvens 1.8s infinite;
+}
+.william-slide{
+    animation: dancingWilliam 4s infinite;
 }
