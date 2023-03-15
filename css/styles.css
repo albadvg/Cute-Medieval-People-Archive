@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Camelot Caps';
+    src: url(../fonts/CamelotCaps.ttf);
+}
+@font-face {
+    font-family: 'Fine Fraktur';
+    src: url(../fonts/fine_fraktur_B.ttf);
+}
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+button{
+    border: none;
+    text-decoration: none;
+    background: transparent;
+}
+h2{
+    font-family: 'Fine Fraktur';
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.container{
+    background-color: rgb(231, 61, 14);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 150px;
+    padding: 0 30px;
+}
+.name{
+    font-family: 'Camelot Caps';
+    font-size: 60px;
+    padding: 20px 0 10px 0;
+}
+.main-nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.nav-element{
+    height: 100%;
+}
+.nav-element button{
+    font-family: 'Fine Fraktur';
+    font-size: 20px;
+    padding: 0 30px;
+    height: 100%;
+    vertical-align: middle;
+    color: white;
+    transition: background-color 1s ;
+    display: inline-block;
+}
+.nav-element button:hover{
+    background-color: rgb(243, 132, 5);
+}
+
+.dude-info{
+    color: black;
+    position: absolute;
+    text-align: right;
+    width: 400px;
+    top: 400px;
+    left: 20px;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: transform .35s linear;
+    visibility: hidden;
+}
+.nav-element:hover .dude-info{
+    visibility: visible;
+    transform: translateX(250px);
+}
+
+img{
+    position: absolute;
+    right: 250px;
+    top: -130px;
+    z-index: -2;
+    width: 500px;
+    visibility: hidden;
+    width: 500px;
+}
+#eladio img{
+    top: -180px;
+}
+#nemesius img{
+    top: -280px;
+    width: 450px;
+}
+#leonora img{
+    top: -200px;
+    width: 400px;
+}
+
+.nav-element:hover img{
+    visibility: visible;
+    animation: bounce2 1s ease-out forwards;
+}
+
+
+@keyframes bounce2 {
+	40% {transform: translateY(400px);}
+	60% {transform: translateY(380px);}
+	100% {transform: translateY(390px);}
+}
