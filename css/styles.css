@@ -3,13 +3,10 @@
     src: url(../fonts/silvus__.ttf);
 }
 @font-face {
-    font-family: 'Fine Fraktur';
-    src: url(../fonts/fine_fraktur_B.ttf);
-}
-@font-face {
     font-family: 'Cardinal';
     src: url(../fonts/Cardinal.ttf);
 }
+
 *,
 *:before,
 *:after {
@@ -17,22 +14,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body{
     max-height: 100vh;
     overflow: hidden;
 }
-/* body * {
-    border: solid 1px black;
-} */
 
 a{
     text-decoration: none;
 }
+
 button{
     border: none;
     text-decoration: none;
-    background: transparent;
+    background-color: unset;
 }
+
 h2{
     font-family: 'Cardinal';
     font-size: 50px;
@@ -46,8 +43,8 @@ h2{
     justify-content: space-between;
     padding: 0 30px;
 }
-img#home{
-    height: 40px;
+img#home-icon{
+    height: 50px;
     transition: transform .5s ease;
 }
 .main-nav {
@@ -66,6 +63,7 @@ img#home{
     height: 55px;
     vertical-align: middle;
     color: white;
+    background-color:rgb(231, 61, 14);
     transition: background-color 1s ;
     display: inline-block;
 }
@@ -84,7 +82,7 @@ button#parade-button{
     transition: transform .5s ease;
 }
 button#parade-button:hover,
-img#home:hover{
+img#home-icon:hover{
     transform: scale(1.2);
 }
 .dude-info{
@@ -112,6 +110,11 @@ img#home:hover{
     top: 210px;
     right: 0;
     transition: right 1s ease;
+}
+.nav-element#diana img,
+.nav-element#florian img
+.nav-element#william img{
+    height: 60vh;
 }
 .nav-element:hover img{
     visibility: visible;
@@ -179,7 +182,7 @@ main{
     0% {transform: rotate(10deg);}
     25% {transform: rotate(-10deg);}
     50% {transform: rotate(10deg);}
-    70% {transform: rotate(-360deg);}
+    75% {transform: rotate(-360deg);}
     100% {transform: rotate(-350deg);}
 
 }
@@ -187,7 +190,7 @@ main{
 #odd-parade{
     width: calc(260px * 6);
     overflow: hidden;
-    visibility: hidden;
+    display: none;
 }
 
 
@@ -213,3 +216,40 @@ main{
 .william-slide{
     animation: dancingWilliam 4s infinite;
 }
+
+#music{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    justify-content: center;
+
+}
+#audio-background{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(231, 61, 14);
+    transition: left 1s linear;
+}
+
+
+
+#music audio{
+    position: absolute;
+    bottom: 0;
+    left: 35%;
+    z-index: 1;
+    width: 30%;
+    min-width: 300px;
+    opacity: 1;
+    transition: left 1s linear;
+}
+.hide-to-right{
+    left: 97vw!important;
+}
+
+
