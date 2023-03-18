@@ -14,6 +14,9 @@ let paradeSlides = document.querySelectorAll('.slide');
 let musicDiv = document.querySelector('#music');
 let paradeAudio = document.querySelector('#music audio');
 
+let root = document.documentElement; //needed for changing css variables
+let navBar = document.querySelector('.nav-container');
+
 
 //EVENT LISTENERS
 homeButton.addEventListener('click', showHome);
@@ -28,6 +31,8 @@ paradeButton.addEventListener('click', showParade);
 paradeAudio.addEventListener('pause', pauseParade);
 paradeAudio.addEventListener('play', playParade);
 
+window.addEventListener('resize' , storeMenuHeight)
+
 
 
 //FUNCTIONS
@@ -38,7 +43,7 @@ function hideHome() {
 };
 //shows home page when clicking home icon and hiddes audio section if already visible
 function showHome(){
-    home.style.display = 'block';
+    home.style.display = 'flex';
     paradeSection.style.display = 'none';
     if(musicDiv.style.display === 'flex') {
            hideParadeAudio();
@@ -79,5 +84,9 @@ function playParade(){
     };    
 };
 
+function storeMenuHeight(){
+    let navBarHeight = navBar.offsetHeight;
+    root.style.setProperty('--menuHeight', navBarHeight + 'px');
+}
 
-
+storeMenuHeight();
