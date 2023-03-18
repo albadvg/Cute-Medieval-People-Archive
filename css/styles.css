@@ -1,3 +1,4 @@
+/*FONTS*/
 @font-face {
     font-family: 'Silvus';
     src: url(../fonts/silvus__.ttf);
@@ -6,7 +7,22 @@
     font-family: 'Cardinal';
     src: url(../fonts/Cardinal.ttf);
 }
+@font-face {
+    font-family: 'Perrygot';
+    src: url(../fonts/PERRYGOT.TTF);
+}
 
+/*VARIABLES*/
+:root{
+    --white: rgb(245, 234, 231);
+    --red: rgb(231, 61, 14);
+    --fancyCapitals: 'Silvus';
+    --headingsFont: 'Perrygot';
+    --paragraphFont: 'Roboto';
+}
+
+
+/*BASIC STYLES*/
 *,
 *:before,
 *:after {
@@ -14,127 +30,167 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body{
-    max-height: 100vh;
     overflow: hidden;
 }
-
 a{
     text-decoration: none;
 }
-
 button{
     border: none;
     text-decoration: none;
     background-color: unset;
 }
-
+p{
+    font-family: var(--paragraphFont);
+    font-size: 16px;
+    font-weight: 250;
+}
 h2{
-    font-family: 'Cardinal';
-    font-size: 50px;
+    font-family: var(--headingsFont);
+    font-size: 30px;
     margin-bottom: 30px;
 }
 
+
+/**********TOP MENU************/
 .nav-container{
-    background-color: rgb(231, 61, 14);
+    background-color: var(--red);
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 30px;
+    align-items: center;
+    column-gap: 20px;
+    padding: 10px 30px;
+}
+
+/*home and parade buttons*/
+#home-button-container{
+    margin-left: auto;
 }
 img#home-icon{
     height: 50px;
     transition: transform .5s ease;
 }
-.main-nav {
-    display: flex;
-    align-items: center;
-    height: 100%;
+#parade-button-container{
+    margin-right: auto;
 }
-.nav-element{
-    height: 100%;
-}
-
-.nav-element button{
-    font-family: 'Cardinal';
-    font-size: 25px;
-    padding: 0 30px;
-    height: 55px;
-    vertical-align: middle;
-    color: white;
-    background-color:rgb(231, 61, 14);
-    transition: background-color 1s ;
-    display: inline-block;
-}
-.nav-element button:hover{
-    background-color: white;
-    color:rgb(231, 61, 14) ;
-}
-
 button#parade-button{
     padding: 6px 15px;
     border-radius: 5px;
-    background-color: white;
-    color: rgb(231, 61, 14);
-    font-family: 'Cardinal';
-    font-size: 25px;
+    background-color:  var(--white);
+    color: var(--red);
+    font-family: var(--headingsFont);
+    font-size: 21px;
     transition: transform .5s ease;
+}
+button#home-button,
+button#parade-button{
+    cursor: pointer;
 }
 button#parade-button:hover,
 img#home-icon:hover{
     transform: scale(1.2);
 }
+@media screen and (max-width: 1290px) {
+    .nav-container{
+        padding: 20px 20px 0 20px;
+    }
+    #home-button-container,
+    #parade-button-container {
+        order: -1;
+    }
+}
+@media screen and (max-width: 560px){
+    .nav-container{
+        padding-top: 8px;
+    }
+}
+
+/*characters' nav bar*/
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 100%;
+}
+.nav-element{
+    height: 100%;
+}
+.nav-element button{
+    display: inline-block;
+    height: 55px;
+    padding: 0 30px;
+    font-family: var(--headingsFont);
+    font-size: 21px;
+    vertical-align: middle;
+    color: var(--white);
+    background-color:var(--red);
+    transition: background-color 1s;
+}
+.nav-element button:hover{
+    background-color:var(--white);
+    color:var(--red) ;
+}
+
+@media screen and (max-width: 1290px) {
+    .main-nav{
+        flex-basis: 100%;
+    }
+    .nav-element button{
+        font-size: 17px;
+    }
+}
+@media screen and (max-width: 560px) {
+    .main-nav{
+        margin-top: 4px;
+    }
+    .nav-element button{
+        font-size: 13px;
+    }
+    
+}
+/*characters' image and info - (shows as main content, but in html is inside each nav item)*/
 .dude-info{
     visibility: hidden;
     position: absolute;
-    top: 340px;
-    left: 0;
+    bottom: 40vh;
+    right: calc(100vw + 100px); /*just 100px out of viewport*/
+    width: 400px;
+    font-family: var(--paragraphFont);
     color: black;
     text-align: right;
-    width: 400px;
-    color: black;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    transition: left 1s ease;
+    transition: right .5s ease-out;
 }
-
 .nav-element:hover .dude-info{
     visibility: visible;
-    left: 20%;
+    right: 55vw;
 }
 .nav-element img{
     height: 50vh;
-    z-index: -2;
+    z-index: 1;
     visibility: hidden;
     position: absolute;
-    top: 210px;
-    right: 0;
-    transition: right 1s ease;
+    bottom: 20vh;
+    left: calc(100vw + 100px);
+    transition: left .5s ease-out;
 }
 .nav-element#diana img,
-.nav-element#florian img
+.nav-element#florian img,
 .nav-element#william img{
-    height: 60vh;
+    height: 55vh;
 }
 .nav-element:hover img{
     visibility: visible;
-    right: 30%;
+    left: 50vw;
 }
-.nav-element#johannes:hover img{
-    right: 27%;
-}
-.nav-element#diana:hover img,
-.nav-element#florian:hover img{
-    right: 38%;
-}
-.nav-element#francisca:hover img{
-    right: 20%;
-}
-
-
 
 main{
-    height: 90vh;
+    height: 95vh;
+    background-color: var(--white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -142,18 +198,39 @@ main{
     font-size: 16px;   
     text-align: center;
 }
-#hello-world{
-    font-family: 'Silvus';
+#home{
+    padding-bottom: 35vh;
+}
+#hello-world p{
+    font-family: var(--fancyCapitals);
     font-size: 60px;
     padding: 20px 0 10px 0;
-    color: rgb(231, 61, 14);
-    margin-bottom: 2rem;
+    color: var(--red);
+    margin-bottom: 3.5rem;
 }
 .subtitle{
-    font-size: 35px;
+    font-size: 27px;
     font-weight: bold;
-    font-family: 'Cardinal';
+    font-family: var(--headingsFont);
     margin-bottom: 1rem;
+}
+#home-paragraph{
+    font-family: var(--headingsFont);
+    font-size: 19.6px;
+    color: rgb(161, 144, 111);
+    margin-top: 2rem;
+}
+
+#home-bottom-image{
+    width: 100%;
+    position: absolute;
+    bottom: -80px;
+    left: 0;
+    opacity: .5;
+    transition: opacity .5s;
+}
+#home-bottom-image:hover{
+    opacity: 1;
 }
 
 .hidden{
@@ -165,34 +242,17 @@ main{
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-260px * 7));
+      transform: translateX(calc(-260px * 6));
     }
 }
-@keyframes oddDancingOdds{
-    0% {transform: rotate(10deg);}
-    50% {transform: rotate(-10deg);}
-    100% {transform: rotate(10deg);}
-}
-@keyframes oddDancingEvens{
-    0% {transform: rotate(-10deg);}
-    50% {transform: rotate(10deg);}
-    100% {transform: rotate(-10deg);}
-}
-@keyframes dancingWilliam{
-    0% {transform: rotate(10deg);}
-    25% {transform: rotate(-10deg);}
-    50% {transform: rotate(10deg);}
-    75% {transform: rotate(-360deg);}
-    100% {transform: rotate(-350deg);}
 
-}
 
 #odd-parade{
     width: calc(260px * 6);
-    overflow: hidden;
-    display: none;
-}
 
+    display: none;
+    margin-bottom: 2rem;
+}
 
 #odd-parade img{
    height: 260px;
@@ -207,14 +267,33 @@ main{
     display: flex;
     width: calc(260px * 14);
 }
-.slide:nth-child(odd):not(.william-slide){
+
+@keyframes oddDancingOdds{
+    0% {transform: rotate(10deg);}
+    50% {transform: rotate(-10deg);}
+    100% {transform: rotate(10deg);}
+}
+@keyframes oddDancingEvens{
+    0% {transform: rotate(-10deg);}
+    50% {transform: rotate(10deg);}
+    100% {transform: rotate(-10deg);}
+}
+.slide:nth-child(odd):not(.william-slide):not(.leonora-slide){
     animation: oddDancingOdds 1.8s infinite;
 }
 .slide:nth-child(even):not(.william-slide){
     animation: oddDancingEvens 1.8s infinite;
 }
+@keyframes dancingWilliam{
+    0% {transform: rotate(10deg);}
+    25% {transform: rotate(-10deg);}
+    50% {transform: rotate(10deg);}
+    75% {transform: rotate(-370deg);}
+    100% {transform: rotate(-350deg);}
+}
+
 .william-slide{
-    animation: dancingWilliam 4s infinite;
+    animation: dancingWilliam 3.6s infinite;
 }
 
 #music{
@@ -226,17 +305,6 @@ main{
     justify-content: center;
 
 }
-#audio-background{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background-color: rgb(231, 61, 14);
-    transition: left 1s linear;
-}
-
-
 
 #music audio{
     position: absolute;
@@ -245,7 +313,6 @@ main{
     z-index: 1;
     width: 30%;
     min-width: 300px;
-    opacity: 1;
     transition: left 1s linear;
 }
 .hide-to-right{

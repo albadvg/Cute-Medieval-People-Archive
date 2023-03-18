@@ -9,8 +9,11 @@
 </head>
 <body>
     <div class="nav-container">
-        <button id="home-button"><img src="img/medieval-house(2).png" alt="" id="home-icon"></button>
+        <div id="home-button-container">
+            <button id="home-button"><img src="img/medieval-house(2).png" alt="" id="home-icon"></button>
+        </div>
         <nav class="main-nav">
+                
                 <div class="nav-element" id="johannes">
                     <button>Johannes</button>                    
                     <div class="dude-info">
@@ -25,7 +28,7 @@
                     <div class="dude-info">
                         <h2>Languid Leonora</h2>
                         <p>'Somewhat original', said her friends when she showed up for court official dance for the first time. <br>
-                            Loose yourself to dance, dear!
+                            Loose yourself to dance, my dear! Afraid of nothing, that's the way I do it.
                         </p>
                     </div>
                     <img src="img/languid-dancer.png" alt="">
@@ -40,20 +43,12 @@
                     <img src="img/contractured-diana.png" alt="">                
                 </div>
 
-                <div class="nav-element" id="florian">
-                    <button>Florian</button>                    
-                    <div class="dude-info">
-                            <h2>Hanging Florian</h2>
-                            <p>Well he is going through an inactivity period </p>
-                    </div>
-                    <img src="img/hanging-florian.png" alt="" >                                     
-                </div>
-               
                 <div class="nav-element" id="william">
                     <button>William</button> 
                     <div class="dude-info">
                         <h2>Stiff William</h2>
-                        <p>All armies tend to have stiff staff.</p>
+                        <p>Stiff William was never meant to be a soldier as his soul is most suited to calm and open-to-dialogue approaches. 
+                            As a result he tends to get cramps in peak moments of action </p>
                     </div>
                     <img src="img/stiff-william.png" alt="">              
                 </div>
@@ -62,7 +57,9 @@
                     <button>Harold</button> 
                         <div class="dude-info">
                             <h2>Positive Harold</h2>
-                            <p>Holding the pain and the smile too. </p>
+                            <p>Holding the pain, and the smile too, Positive Harold is convinced that he will be fine if he pushes himself hard enough. 
+                                He truly needs a shoulder to leen on
+                            </p>
                         </div>
                         <img src="img/Harold.png" alt="">
                 </div> 
@@ -71,13 +68,17 @@
                     <button>Francisca</button>                    
                     <div class="dude-info">
                             <h2>Unimpressionable Francisca</h2>
-                            <p>Unicorns? Silly business...</p>
+                            <p>Unicorns? Silly business...Unimpressionable Francisca is up for no shit. She doesn't like too much fuss around things.
+                            </p>
                     </div>
                     <img src="img/unicorn-educator.png" alt="" >                                     
                 </div>
                               
         </nav>
-        <button id="parade-button">Odd Parade</button>
+        <div id="parade-button-container">
+            <button id="parade-button">Odd Parade</button>
+        </div>
+        
     </div> <!--nav-container-->
     <main>
         <div id="home">
@@ -85,7 +86,8 @@
                 <p>HELLO WORLD</p>
             </div>
             <p class="subtitle">Looking for a medieval character to relate to?</p>
-            <p>May you find awe inspiration navigating through this catalogue of cuties from the Middle Ages</p>
+            <p id="home-paragraph">May you find inspiration and awe <br> navigating through this catalogue of cuties from the Middle Ages</p>
+            <img src="img/home-bottom-image.png" alt="" id="home-bottom-image">
         </div>
         <div id="odd-parade">
             <div class="slides-wrapper">
@@ -96,9 +98,6 @@
                     <img src="img/contractured-diana.png" alt="">
                 </div>
                 <div class="slide">
-                    <img src="img/hanging-florian.png" alt="">
-                </div>
-                <div class="slide">
                     <img src="img/Harold.png" alt="">
                 </div>
                 <div class="slide">
@@ -107,7 +106,7 @@
                 <div class="slide william-slide" >
                     <img src="img/stiff-william.png" alt="">
                 </div>
-                <div class="slide">
+                <div class="slide leonora-slide">
                     <img src="img/languid-dancer.png" alt="">
                 </div>
                 <div class="slide">
@@ -117,9 +116,6 @@
                     <img src="img/contractured-diana.png" alt="">
                 </div>
                 <div class="slide">
-                    <img src="img/hanging-florian.png" alt="">
-                </div>
-                <div class="slide">
                     <img src="img/Harold.png" alt="">
                 </div>
                 <div class="slide">
@@ -128,7 +124,7 @@
                 <div class="slide william-slide" >
                     <img src="img/stiff-william.png" alt="">
                 </div>
-                <div class="slide">
+                <div class="slide leonora-slide">
                     <img src="img/languid-dancer.png" alt="">
                 </div>
                                           
@@ -138,7 +134,7 @@
             <audio controls>
                 <source src="audio/Zefiro torna (Monteverdi) - Rial & Jaroussky.mp3" type="audio/mpeg">
             </audio>
-            <div id="audio-background"></div>
+            <!-- <div id="audio-background"></div> -->
             
         </div>
     </main>

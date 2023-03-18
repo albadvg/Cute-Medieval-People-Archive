@@ -2,6 +2,7 @@
 let homeButton = document.querySelector('#home-button');
 
 let navElements = document.querySelectorAll('.nav-element');
+let dudeInfoGroup = document.querySelectorAll('.dude-info');
 
 let home = document.querySelector('#home');
 
@@ -11,22 +12,21 @@ let paradeSlider = document.querySelector('.slides-wrapper');
 let paradeSlides = document.querySelectorAll('.slide');
 
 let musicDiv = document.querySelector('#music');
-let audioBackground = document.querySelector('#audio-background');
-let audioElement = document.querySelector('#music audio');
-
+let paradeAudio = document.querySelector('#music audio');
 
 
 //EVENT LISTENERS
-homeButton.addEventListener('click', showHome)
+homeButton.addEventListener('click', showHome);
 
 for (i=0; i<navElements.length; i++) {
     navElements[i].addEventListener('mouseover' , hideHome);
+    navElements[i].addEventListener('mouseover' , hideParadeAudio);
 };
 
 paradeButton.addEventListener('click', showParade);
 
-audioElement.addEventListener('pause', pauseParade);
-audioElement.addEventListener('play', playParade);
+paradeAudio.addEventListener('pause', pauseParade);
+paradeAudio.addEventListener('play', playParade);
 
 
 
@@ -41,9 +41,12 @@ function showHome(){
     home.style.display = 'block';
     paradeSection.style.display = 'none';
     if(musicDiv.style.display === 'flex') {
-        audioBackground.classList.add('hide-to-right'); 
-        audioElement.classList.add('hide-to-right');    
+           hideParadeAudio();
     }
+}
+
+function hideParadeAudio() {
+    paradeAudio.classList.add('hide-to-right'); 
 }
 
 //shows parade section when clicking button 'Odd Parade" and moves audio section to full width
@@ -51,10 +54,9 @@ function showParade() {
     home.style.display = 'none';
     paradeSection.style.display = 'block';
     musicDiv.style.display = 'flex';
-    audioElement.play(); 
-    if(audioBackground.classList.contains('hide-to-right')) {
-        audioBackground.classList.remove('hide-to-right');
-        audioElement.classList.remove('hide-to-right');
+    paradeAudio.play(); 
+    if(paradeAudio.classList.contains('hide-to-right')) {
+        paradeAudio.classList.remove('hide-to-right');
     } ;
 };
 
@@ -74,5 +76,8 @@ function playParade(){
         paradeSlides.forEach(slide => { 
             slide.style.animationPlayState = 'running';
         });
-    }    
+    };    
 };
+
+
+
