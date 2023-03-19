@@ -301,6 +301,7 @@ main{
     animation: oddParade 20s linear infinite;
     display: flex;
     width: calc(260px * 14);
+    overflow: hidden;
 }
 
 @keyframes oddDancingOdds{
