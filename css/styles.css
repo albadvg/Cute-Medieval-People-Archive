@@ -332,6 +332,7 @@ main{
     animation: dancingWilliam 3.6s infinite;
 }
 
+/*******MUSIC BAR*********/
 #music{
     position: absolute;
     bottom: 0;
@@ -345,14 +346,22 @@ main{
 #music audio{
     position: absolute;
     bottom: 0;
-    left: 35%;
+    left: 40vw;
     z-index: 1;
-    width: 30%;
-    min-width: 300px;
+    width: 20vw;
     transition: left 1s linear;
 }
 .hide-to-right{
-    left: 97vw!important;
+    left: 96.6vw!important;
+}
+@media screen and (max-width: 560px) {
+    #music audio {
+        width: 100vw;
+        left: 0;
+    }
+    .hide-to-right{
+        left: 88vw!important;
+    }
 }
 
 
