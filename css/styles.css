@@ -286,6 +286,7 @@ main{
     width: calc(260px * 6);
     display: none;
     margin-bottom: 2rem;
+    overflow:hidden;
 }
 
 #odd-parade img{
