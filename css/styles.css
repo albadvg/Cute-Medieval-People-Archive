@@ -122,6 +122,7 @@ img#home-icon:hover{
     align-items: center;
     height: 100%;
     max-width: 100%;
+    overflow: hidden;
 }
 .nav-element{
     height: 100%;
