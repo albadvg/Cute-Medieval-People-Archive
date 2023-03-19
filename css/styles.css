@@ -214,7 +214,7 @@ img#home-icon:hover{
 
 /**********HOME PAGE**********/
 main{
-    height: calc(100vh - var(--menuHeight));
+    height: calc(var(--browserHeight) - var(--menuHeight));
     background-color: var(--white);
     display: flex;
     flex-direction: column;

@@ -84,9 +84,16 @@ function playParade(){
     };    
 };
 
+//creates css variable for height of nav bar (then used in stylesheet for setting height of main)
 function storeMenuHeight(){
-    let navBarHeight = navBar.offsetHeight;
+    let navBarHeight = navBar.offsetHeight;    
     root.style.setProperty('--menuHeight', navBarHeight + 'px');
+}
+//creates css variable for height of browser window (solves problem of 100vh in mobiles)
+function storeBrowserHeight(){
+    let browserHeight = window.innerHeight;
+    root.style.setProperty('--browserHeight' , browserHeight + 'px');
 }
 
 storeMenuHeight();
+storeBrowserHeight();
