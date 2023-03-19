@@ -90,10 +90,10 @@ function storeMenuHeight(){
     root.style.setProperty('--menuHeight', navBarHeight + 'px');
 }
 //creates css variable for height of browser window (solves problem of 100vh in mobiles)
-function storeBrowserHeight(){
-    let browserHeight = window.innerHeight;
-    root.style.setProperty('--browserHeight' , browserHeight + 'px');
-}
+// function storeBrowserHeight(){
+//     let browserHeight = window.innerHeight;
+//     root.style.setProperty('--browserHeight' , browserHeight + 'px');
+// }
 
 storeMenuHeight();
-storeBrowserHeight();
+// storeBrowserHeight();
