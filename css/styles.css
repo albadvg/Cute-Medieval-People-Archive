@@ -284,7 +284,6 @@ main{
 
 #odd-parade{
     width: calc(260px * 6);
-
     display: none;
     margin-bottom: 2rem;
 }
@@ -300,7 +299,7 @@ main{
 .slides-wrapper {
     animation: oddParade 20s linear infinite;
     display: flex;
-    width: calc(260px * 14);
+    width: calc(260px * 12);
     overflow: hidden;
 }
 
