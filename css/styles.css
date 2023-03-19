@@ -67,6 +67,7 @@ h2{
     align-items: center;
     column-gap: 20px;
     padding: 0 30px;
+    
 }
 
 /*home and parade buttons*/
@@ -122,6 +123,7 @@ img#home-icon:hover{
     align-items: center;
     height: 100%;
     max-width: 100vw;
+    
 }
 .nav-element{
     height: 100%;
@@ -163,7 +165,6 @@ img#home-icon:hover{
 }
 /*characters' image and info - (shows as main content, but in html is inside each nav item)*/
 .dude-info{
-    display: none;
     visibility: hidden;
     position: absolute;
     bottom: calc(calc(100vh - var(--menuHeight)) / 3) ;
@@ -181,8 +182,7 @@ img#home-icon:hover{
 }
 .nav-element img{
     height: 50vh;
-    z-index: 1;
-    display: none;
+    z-index: 0;
     visibility: hidden;
     position: absolute;
     bottom: calc(calc(100vh - var(--menuHeight)) / 4.5) ;
@@ -195,7 +195,6 @@ img#home-icon:hover{
     height: 55vh;
 }
 .nav-element:hover img{
-    display: block;
     visibility: visible;
     left: 50vw;
 }
@@ -209,11 +208,32 @@ img#home-icon:hover{
     }
     .nav-element#diana img,
     .nav-element#william img{
-        height: 50vh;
+        height: 45vh;
     }
     .nav-element#johannes img,
     .nav-element#francisca img {
-        height: 35vh;
+        height: 37vh;
+    }
+}
+@media screen and (max-width: 560px) {
+    .dude-info{
+        width: 80vw;
+        bottom: 8vw;
+        text-align: center;
+    }
+    .nav-element:hover .dude-info{
+        right: 10vw;
+    }
+    .nav-element img{
+        top: 0;
+        right: unset;
+        left: 0vw;
+        transition: top .5s ease-out;
+      
+    }
+    .nav-element:hover img{
+        top: calc(var(--menuHeight) + 10vw);
+        left: calc(100vw - calc(var(--archiveImageWidth) / 2));
     }
 }
 

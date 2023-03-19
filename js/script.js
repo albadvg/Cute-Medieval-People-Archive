@@ -17,6 +17,9 @@ let paradeAudio = document.querySelector('#music audio');
 let root = document.documentElement; //needed for changing css variables
 let navBar = document.querySelector('.nav-container');
 
+let archiveImages = document.querySelectorAll('.nav-element img');
+let mainNavButtons = document.querySelectorAll('.nav-element button');
+
 
 //EVENT LISTENERS
 homeButton.addEventListener('click', showHome);
@@ -32,6 +35,10 @@ paradeAudio.addEventListener('pause', pauseParade);
 paradeAudio.addEventListener('play', playParade);
 
 window.addEventListener('resize' , storeMenuHeight)
+
+mainNavButtons.forEach(button => {
+    button.addEventListener('mouseover' , storeImageWidth);
+});
 
 
 
@@ -89,11 +96,19 @@ function storeMenuHeight(){
     let navBarHeight = navBar.offsetHeight;    
     root.style.setProperty('--menuHeight', navBarHeight + 'px');
 }
-//creates css variable for height of browser window (solves problem of 100vh in mobiles)
-// function storeBrowserHeight(){
-//     let browserHeight = window.innerHeight;
-//     root.style.setProperty('--browserHeight' , browserHeight + 'px');
-// }
 
-storeMenuHeight();
-// storeBrowserHeight();
+//creates css variable for image width
+function storeImageWidth() {
+    archiveImages.forEach( image => {
+        if (image.style.visibility === 'visible') {
+            let archiveImageWidth = image.offsetWidth;
+            root.style.setProperty('--archiveImageWidth' , archiveImageWidth + 'px');
+            console.log('ola');
+            
+        };
+    });
+};
+
+storeMenuHeight();        
+console.log(mainNavButtons)   
+console.log(archiveImages)
