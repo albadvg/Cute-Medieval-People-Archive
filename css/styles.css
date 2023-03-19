@@ -163,6 +163,7 @@ img#home-icon:hover{
 }
 /*characters' image and info - (shows as main content, but in html is inside each nav item)*/
 .dude-info{
+    display: none;
     visibility: hidden;
     position: absolute;
     bottom: calc(calc(100vh - var(--menuHeight)) / 3) ;
@@ -174,12 +175,14 @@ img#home-icon:hover{
     transition: right .5s ease-out;
 }
 .nav-element:hover .dude-info{
+    display: block;
     visibility: visible;
     right: 55vw;
 }
 .nav-element img{
     height: 50vh;
     z-index: 1;
+    display: none;
     visibility: hidden;
     position: absolute;
     bottom: calc(calc(100vh - var(--menuHeight)) / 4.5) ;
@@ -192,6 +195,7 @@ img#home-icon:hover{
     height: 55vh;
 }
 .nav-element:hover img{
+    display: block;
     visibility: visible;
     left: 50vw;
 }
