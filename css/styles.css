@@ -238,7 +238,7 @@ img#home-icon:hover{
 
 /**********HOME PAGE**********/
 main{
-    height: calc(100dvh - var(--menuHeight));
+    height: calc(100svh - var(--menuHeight));
     background-color: var(--white);
     display: flex;
     flex-direction: column;
@@ -287,7 +287,10 @@ main{
 }
 
 @media screen and (max-width: 900px){
-    
+    #home-paragraph,
+    .subtitle{
+        line-height: 2;
+    }
 }
 @media screen and (max-width: 900px) and (orientation: portrait){
     #home-bottom-image {
