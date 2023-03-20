@@ -226,7 +226,7 @@ img#home-icon:hover{
     }
     .nav-element img{
         top: 0;
-        left: calc(100vw - calc(var(--archiveImageWidth) / 2));
+        left: calc(50vw - var(--halfArchiveImageWidth));
         transition: top .5s ease-out;
       
     }
