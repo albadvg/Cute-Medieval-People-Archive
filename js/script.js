@@ -24,10 +24,12 @@ let mainNavButtons = document.querySelectorAll('.nav-element button');
 //EVENT LISTENERS
 homeButton.addEventListener('click', showHome);
 
-for (i=0; i<navElements.length; i++) {
-    navElements[i].addEventListener('mouseover' , hideHome);
-    navElements[i].addEventListener('mouseover' , hideParadeAudio);
-};
+navElements.forEach(navElement => {
+    navElement.addEventListener('mouseover' , hideHome);
+    navElement.addEventListener('mouseover' , hideParadeAudio);
+    navElement.addEventListener('mouseover' , function(){ storeImageWidth(navElement);} );
+    
+});
 
 paradeButton.addEventListener('click', showParade);
 
@@ -36,9 +38,6 @@ paradeAudio.addEventListener('play', playParade);
 
 window.addEventListener('resize' , storeMenuHeight)
 
-mainNavButtons.forEach(button => {
-    button.addEventListener('mouseover' , storeImageWidth);
-});
 
 
 
@@ -98,17 +97,15 @@ function storeMenuHeight(){
 }
 
 //creates css variable for image width
-function storeImageWidth() {
-    archiveImages.forEach( image => {
-        if (image.style.visibility === 'visible') {
-            let archiveImageWidth = image.offsetWidth;
-            root.style.setProperty('--archiveImageWidth' , archiveImageWidth + 'px');
-            console.log('ola');
-            
-        };
-    });
+
+function storeImageWidth(navElement) {
+    let image = navElement.children[2];
+    let archiveImageWidth = image.offsetWidth;
+    root.style.setProperty('--archiveImageWidth' , archiveImageWidth + 'px');
+    console.log(navElement)
+    console.log(image);
+    console.log(archiveImageWidth);
+    return;
 };
 
-storeMenuHeight();        
-console.log(mainNavButtons)   
-console.log(archiveImages)
+storeMenuHeight();       
