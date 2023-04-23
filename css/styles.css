@@ -62,6 +62,7 @@ h2{
 @media screen and (max-width: 900px) {
     h2{
         font-size: 20px;
+        line-height: 1.7;
     }
 }
 
@@ -215,8 +216,10 @@ img#home-icon:hover{
         z-index: -1;
     }
     .nav-element#diana img,
-    .nav-element#william img{
-        height: 45vh;
+    .nav-element#william img,
+    .nav-element#leonora img,
+    {
+        height: 40vh;
     }
     .nav-element#johannes img,
     .nav-element#francisca img {
@@ -226,7 +229,7 @@ img#home-icon:hover{
 @media screen and (max-width: 560px) {
     .dude-info{
         width: 80vw;
-        bottom: 8vh;
+        bottom: 5vh;
         text-align: center;
     }
     .nav-element:hover .dude-info{
