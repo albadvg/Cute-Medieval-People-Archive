@@ -16,12 +16,14 @@
 :root{
     --white: rgb(245, 234, 231);
     --red: rgb(231, 61, 14);
+    /*fonts*/
     --fancyCapitals: 'Silvus';
     --headingsFont: 'Perrygot';
     --paragraphFont: 'Roboto';
+    /*image width*/
     --halfArchiveImageWidth : calc(var(--archiveImageWidth) / 2);
+    /*there are two variables created with javascript so that value updates with viewport changes: (--archiveImageWidth) and (--menuHeight)*/
 }
-
 
 /*BASIC STYLES*/
 *,
@@ -48,7 +50,8 @@ button{
 }
 p{
     font-family: var(--paragraphFont);
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 1.5;
     font-weight: 250;
 }
 h2{
@@ -72,7 +75,6 @@ h2{
     align-items: center;
     column-gap: 20px;
     padding: 0 30px;
-    
 }
 
 /*home and parade buttons*/
@@ -128,7 +130,6 @@ img#home-icon:hover{
     align-items: center;
     height: 100%;
     max-width: 100vw;
-    
 }
 .nav-element{
     height: 100%;
@@ -163,10 +164,12 @@ img#home-icon:hover{
         margin-top: 4px;
     }
     .nav-element button{
-        font-size: 15px;
+        font-size: 14px;
         height: 30px;
+        padding: 0 20px;
     }  
 }
+
 /*characters' image and info - (shows as main content, but in html is inside each nav item)*/
 .dude-info{
     visibility: hidden;
@@ -209,6 +212,7 @@ img#home-icon:hover{
     }
     .nav-element img{
         height: 40vh;
+        z-index: -1;
     }
     .nav-element#diana img,
     .nav-element#william img{
@@ -222,7 +226,7 @@ img#home-icon:hover{
 @media screen and (max-width: 560px) {
     .dude-info{
         width: 80vw;
-        bottom: 8vw;
+        bottom: 8vh;
         text-align: center;
     }
     .nav-element:hover .dude-info{
@@ -243,7 +247,6 @@ img#home-icon:hover{
 /**********HOME PAGE**********/
 main{
     height: calc(100svh - var(--menuHeight));
-    background-color: var(--white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -278,7 +281,7 @@ main{
 
 #home-bottom-image{
     width: 100%;
-    margin-bottom: -100px;
+    margin-bottom: -80px;
     opacity: .5;
     transition: opacity .5s;
 }
