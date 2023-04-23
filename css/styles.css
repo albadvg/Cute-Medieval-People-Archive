@@ -217,8 +217,7 @@ img#home-icon:hover{
     }
     .nav-element#diana img,
     .nav-element#william img,
-    .nav-element#leonora img,
-    {
+    .nav-element#leonora img{
         height: 40vh;
     }
     .nav-element#johannes img,
